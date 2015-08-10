@@ -75,3 +75,21 @@ an `'active' => true` and is highlighted as active on the page.
 Go ahead and refresh your browser at http://joomla.dev/todo/administrator/index.php?option=com_todo&view=items
 
 ![Todos List With Menubar](/resources/images/todotutorial/todo-list-with-menubar.png)
+
+If you click on the "Dashboard" link, you will notice that the menu is missing from
+that page. This is because the view does not have the menu enabled.
+
+Open the file:
+
+`/administrator/components/com_todo/controller/dashboard.php`
+
+And add this in the file:
+
+```html
+<?= helper('behavior.koowa'); ?>
+ <ktml:module position="submenu">
+     <ktml:toolbar type="menubar">
+ </ktml:module>
+```
+
+You will now see the menu in the dashboard view as well.
